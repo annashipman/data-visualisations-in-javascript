@@ -1,0 +1,127 @@
+var months = [ 
+[{
+    project: "A",
+    numberOfFeatures: 1,
+    fixedBugs: 1, 
+    unfixedBugs: 2 
+ }, 
+{
+    project: "C",
+    numberOfFeatures: 2,
+    fixedBugs: 2, 
+    unfixedBugs: 2
+},
+{
+    project: "F",
+    numberOfFeatures: 1,
+    fixedBugs: 3, 
+    unfixedBugs: 3
+},
+{
+    project: "S",
+    numberOfFeatures: 1,
+    fixedBugs: 4, 
+    unfixedBugs: 4
+}], 
+
+[{
+    project: "A",
+    numberOfFeatures: 2,
+    fixedBugs: 5, 
+    unfixedBugs: 2 
+ }, 
+{
+    project: "C",
+    numberOfFeatures: 2,
+    fixedBugs: 6, 
+    unfixedBugs: 3
+},
+{
+    project: "F",
+    numberOfFeatures: 3,
+    fixedBugs: 3, 
+    unfixedBugs: 3
+},
+{
+    project: "S",
+    numberOfFeatures: 4,
+    fixedBugs: 4, 
+    unfixedBugs: 4
+}],
+
+[{
+    project: "A",
+    numberOfFeatures: 3,
+    fixedBugs: 5, 
+    unfixedBugs: 4 
+ }, 
+{
+    project: "C",
+    numberOfFeatures: 2,
+    fixedBugs: 8, 
+    unfixedBugs: 2
+},
+{
+    project: "F",
+    numberOfFeatures: 4,
+    fixedBugs: 4, 
+    unfixedBugs: 4
+},
+{
+    project: "S",
+    numberOfFeatures: 8,
+    fixedBugs: 5,
+    unfixedBugs: 2
+}], 
+
+[{
+    project: "A",
+    numberOfFeatures: 6,
+    fixedBugs: 8, 
+    unfixedBugs: 2 
+ }, 
+{
+    project: "C",
+    numberOfFeatures: 3,
+    fixedBugs: 8, 
+    unfixedBugs: 7
+},
+{
+    project: "F",
+    numberOfFeatures: 4,
+    fixedBugs: 4,  
+    unfixedBugs: 4
+},
+{
+    project: "S",
+    numberOfFeatures: 8,
+    fixedBugs: 5, 
+    unfixedBugs: 8
+}],
+
+[{
+    project: "A",
+    numberOfFeatures: 7,
+    fixedBugs: 10, 
+    unfixedBugs: 1 
+ }, 
+{
+    project: "C",
+    numberOfFeatures: 4,
+    fixedBugs: 8, 
+    unfixedBugs: 7
+},
+{
+    project: "F",
+    numberOfFeatures: 4,
+    fixedBugs: 6,  
+    unfixedBugs: 2
+},
+{
+    project: "S",
+    numberOfFeatures: 8,
+    fixedBugs: 7, 
+    unfixedBugs: 6
+}]
+];
+
