@@ -24,6 +24,13 @@ function init(){
             }
 
             $jit.id('inner-details').innerHTML = caption;
+
+            sb.tips.hide();
+           
+            sb.rotate(node, 'animate' , {
+              duration: 1000,
+              transition: $jit.Trans.Quart.easeInOut
+            });
           }
         },
         Tips: {
