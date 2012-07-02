@@ -2,16 +2,15 @@ var margin = {top: 20, right: 20, bottom: 20, left: 40},
     width = 600 - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("#chart").append("svg");
+var svg = d3.select("#chart").append("svg").append("g");
 
 var month = 0;
 
-var features = svg.append("g")
-    .selectAll("rect")
+var features = svg.selectAll("rect")
     .data(months[month]) 
     .enter()
     .append("rect")
-    .style("fill", "green" )
+    .style("fill", "blue" )
     .attr("width", 60)        
     .attr("x", function(d) { return projectPosition(d) } )
     
