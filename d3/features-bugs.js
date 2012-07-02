@@ -21,15 +21,14 @@ var svg = d3.select("#chart").append("svg")
 
 var month = 0;
 
-var features = svg.selectAll(".feature")
+var features = svg.selectAll("rect")
     .data(months[month])
     .enter()
       .append("rect")
         .attr("x", function(d) { return xScale(d.project) + 40 } ) 
         .attr("width", xScale.rangeBand() - 80) //hard-coding is for gap
         .style("fill", colorScale(1) )
-        .attr("class", "feature")
-    
+        
         .attr("y", function(d) { return height - yScale(d.numberOfFeatures); } )
         .attr("height", function(d) { return yScale(d.numberOfFeatures); });
 
