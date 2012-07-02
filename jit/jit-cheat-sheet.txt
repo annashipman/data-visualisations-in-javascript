@@ -1,0 +1,87 @@
+Create the basic sunburst
+-------------------------
+
+	var sb = new $jit.Sunburst({
+        injectInto: 'infovis',
+        levelDistance: 90,
+        Node: { overridable: true } 
+    });
+
+    sb.loadJSON(json);
+    sb.refresh(); 
+
+ Set labels
+ ----------
+
+ Label: { type: 'Native'}
+
+ Add an onclick event to show some info to the side
+ --------------------------------------------------
+
+  Events: {
+          enable: true,
+          onClick: function(node) {
+            if(!node) return;
+            var caption = node.name + "\n", data = node.data;
+            if("type" in data) {
+              caption += "Type: " + data.type+"\n";
+            }
+            if("startDate" in data) {
+              caption += "Work started on: " + data.startDate + "\n";
+            }
+            if("endDate" in data) {
+              caption += "In production on: " + data.endDate+"\n";
+            }
+            if("description" in data) {
+              caption += data.description;
+            }
+
+            $jit.id('inner-details').innerHTML = caption;
+
+          }
+        },
+
+Add a hover over event to show tooltips
+---------------------------------------
+        Tips: {
+          enable: true,
+          onShow: function(tip, node) {
+            var html = "<div class=\"tip-title\">" + node.name + "</div>"; 
+            var data = node.data;
+            if("timeTaken" in data) {
+              html += "<b>Time Taken:</b> " + data.timeTaken + " days";
+            }
+            tip.innerHTML = html;
+          }
+        },
+
+Change colour on hover over and click
+-------------------------------------        
+        NodeStyles: {
+          enable: true,
+          type: 'Native',
+          stylesClick: {
+            'color': "#36305D"
+          },
+          stylesHover: {
+            'color': "#3E56A1"
+          }
+        } 
+
+Add rotation transition
+-----------------------
+
+(documentation on transitions: http://thejit.org/static/v20/Docs/files/Options/Options-Fx-js.html#$jit.Trans)
+
+
+    sb.tips.hide();
+           
+    sb.rotate(node, 'animate' , {
+    	duration: 1000,
+        transition: $jit.Trans.Quart.easeInOut
+    }); 
+
+To make it work for treemap
+---------------------------
+
+In data_sorter.rb, change $angularWidth for $area and add it to the parent.
