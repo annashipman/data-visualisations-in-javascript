@@ -7,7 +7,7 @@ class DataSorter
   class Task < Struct.new(:id, :start_date, :end_date)
     def time_spent_in_days
       if !end_date.nil? && !start_date.nil?
-        (Date.parse(end_date) - Date.parse(start_date)).to_i
+        (Date.parse(end_date) - Date.parse(start_date)).to_i + 1
       end
     end
 
