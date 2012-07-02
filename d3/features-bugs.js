@@ -13,7 +13,7 @@ var xScale = d3.scale.ordinal()
       .domain([0, 20])
       .range([0, height]);
 
-var svg = d3.select("#chart").append("svg");
+var svg = d3.select("#chart").append("svg").append("g");
 
 var month = 0;
 
