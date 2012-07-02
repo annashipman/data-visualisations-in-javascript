@@ -1,9 +1,12 @@
+//values for working with the chart
 var margin = {top: 20, right: 20, bottom: 20, left: 40},
     width = 600 - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+//our domain
 var projects = ["A", "C", "F", "S"];
 
+//set some scales
 var colorScale = d3.scale.category10();
 
 var xScale = d3.scale.ordinal()
@@ -13,14 +16,18 @@ var xScale = d3.scale.ordinal()
       .domain([0, 20])
       .range([0, height]);
 
+//append svg to the chart id. 
 var svg = d3.select("#chart").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); //need to do this so axes can be outside of dataset
+      //this needs to be done so the axes can be outside the chart. We are returning a 
+      //new element to append things to
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
 
 var month = 0;
 
+//for each feature, add a rectangle and style it
 var features = svg.selectAll(".feature")
     .data(months[month])
     .enter()
@@ -42,9 +49,10 @@ var fixedBugs = svg.selectAll(".fixed-bug")
         .style("fill", colorScale(2) )
         .attr("class", "fixed-bug")
     
-        .attr("y", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ) } )//TODO - make it on top of the other one
+        .attr("y", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ) } )
         .attr("height", function(d) { return yScale(d.fixedBugs); }); 
 
+//the radius of the circle is related to the number of outstanding bugs
 var unfixedBugs = svg.selectAll(".unfixed-bug")
     .data(months[month])
     .enter() 
@@ -56,6 +64,7 @@ var unfixedBugs = svg.selectAll(".unfixed-bug")
         .attr("cy", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) + 40 ); } )
         .attr("r", function(d) { return d.unfixedBugs * 10; } );
 
+//redraw the y and the height (for rectangles) and the cy and radius (for circles)
 function redraw() {
   svg.selectAll(".feature")
     .data(months[month])
@@ -68,7 +77,7 @@ function redraw() {
     .data(months[month])
     .transition()
       .duration(1000)
-    .attr("y", function(d) { return height - (yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ); } ) //TODO and here.
+    .attr("y", function(d) { return height - (yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ); } ) 
     .attr("height", function(d) { return yScale(d.fixedBugs); });
 
   svg.selectAll(".unfixed-bug")
@@ -79,6 +88,7 @@ function redraw() {
     .attr("r", function(d) { return d.unfixedBugs * 10; });
 }
 
+//call the redraw function every 1500 seconds
 setInterval(function() {
   if (month < months.length - 1) {
     month++;
