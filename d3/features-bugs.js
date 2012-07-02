@@ -26,7 +26,7 @@ var features = svg.selectAll("rect")
     .enter()
       .append("rect")
         .attr("x", function(d) { return xScale(d.project) + 40 } ) 
-        .attr("width", xScale.rangeBand() - 80) //hard-coding is for gap
+        .attr("width", xScale.rangeBand() - 80) 
         .style("fill", colorScale(1) )
         
         .attr("y", function(d) { return height - yScale(d.numberOfFeatures); } )
