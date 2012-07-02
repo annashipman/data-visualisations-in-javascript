@@ -42,7 +42,9 @@ var fixedBugs = svg.selectAll(".fixed-bug")
         .style("fill", colorScale(2) )
         .attr("class", "fixed-bug")
     
-        .attr("y", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ) } )//TODO - make it on top of the other one
+        .attr("y", function(d) { 
+          return height - ( yScale(d.numberOfFeatures) 
+            + yScale(d.fixedBugs) ) } )
         .attr("height", function(d) { return yScale(d.fixedBugs); }); 
 
 var unfixedBugs = svg.selectAll(".unfixed-bug")
@@ -53,7 +55,9 @@ var unfixedBugs = svg.selectAll(".unfixed-bug")
         .attr("class", "unfixed-bug")
         .attr("cx", function(d) { return xScale(d.project) + 70;  } ) 
         
-        .attr("cy", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) + 40 ); } )
+        .attr("cy", function(d) { 
+          return height - ( yScale(d.numberOfFeatures) 
+            + yScale(d.fixedBugs) + 40 ); } )
         .attr("r", function(d) { return d.unfixedBugs * 10; } );
 
 function redraw() {
@@ -64,12 +68,16 @@ function redraw() {
 
   svg.selectAll(".fixed-bug")
     .data(months[month])
-    .attr("y", function(d) { return height - (yScale(d.numberOfFeatures) + yScale(d.fixedBugs) ); } ) //TODO and here.
+    .attr("y", function(d) { 
+      return height - (yScale(d.numberOfFeatures) 
+        + yScale(d.fixedBugs) ); } ) //TODO and here.
     .attr("height", function(d) { return yScale(d.fixedBugs); });
 
   svg.selectAll(".unfixed-bug")
     .data(months[month])
-    .attr("cy", function(d) { return height - ( yScale(d.numberOfFeatures) + yScale(d.fixedBugs) + 40 ); } )
+    .attr("cy", function(d) { 
+      return height - ( yScale(d.numberOfFeatures) 
+        + yScale(d.fixedBugs) + 40 ); } )
     .attr("r", function(d) { return d.unfixedBugs * 10; });
 }
 
