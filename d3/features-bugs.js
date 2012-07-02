@@ -26,7 +26,7 @@ var features = svg.selectAll(".feature")
     .enter()
       .append("rect")
         .attr("x", function(d) { return xScale(d.project) + 40 } ) 
-        .attr("width", xScale.rangeBand() - 80) //hard-coding is for gap
+        .attr("width", xScale.rangeBand() - 80) 
         .style("fill", colorScale(1) )
         .attr("class", "feature")
     
@@ -70,7 +70,7 @@ function redraw() {
     .data(months[month])
     .attr("y", function(d) { 
       return height - (yScale(d.numberOfFeatures) 
-        + yScale(d.fixedBugs) ); } ) //TODO and here.
+        + yScale(d.fixedBugs) ); } ) 
     .attr("height", function(d) { return yScale(d.fixedBugs); });
 
   svg.selectAll(".unfixed-bug")
