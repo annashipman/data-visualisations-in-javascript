@@ -19,7 +19,7 @@ function init() {
     		month.infrastructure, 
     		month.maintenance];
     	
-      	var pie = r.piechart(x, y, radius, data, {colors:colours})
+      	var pie = r.piechart(x, y, radius, data, {colors:colours});
             
         r.text(x, y + labelOffset, month.monthString);
         x += pieSpacing;
