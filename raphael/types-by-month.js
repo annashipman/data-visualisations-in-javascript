@@ -22,14 +22,7 @@ function init() {
 
       var data = [month.features, month.bugs, month.infrastructure, month.maintenance];
       
-        var pie = r.piechart(x, y, radius, data, {colors:colours})
-        .hover(
-            function() { 
-              flag = r.flag(this.mx, this.my, this.value.value) 
-            },
-            function(){ 
-              flag.remove()
-          });  
+        var pie = r.piechart(x, y, radius, data, {colors:colours});  
             
         lineX.push(sortedData.indexOf(month));
         lineYFeatures.push(month.features);
