@@ -1,9 +1,14 @@
 Data Visualisations in JavaScript
 
 Code for SPA2012 talk: http://www.spaconference.org/spa2012/sessions/session412.html
+There are slides from the talk here: http://www.slideshare.net/annashipman/data-visualisations-in-iavascript
 
-Three visualisations: a sunburst using JIT, a nightingale using Raphael and a dynamic stacked barchart using d3.
+This repo contains demos for how to create three visualisations:
 
-Each folder contains the html file to display the visualisation, the file to include, a complete version of the file to include (i.e. just change the html so it includes *_complete.js to skip to the end), and a cheat sheet listing you the steps from blank to complete.
+ - a sunburst using JIT
+ - a nightingale using Raphael 
+ - a dynamic stacked barchart using d3.
 
-In master, the file to include is blank (or may contain an init() function). There are four branches in addition to master - these take you through the stages of each visualisation.
+Each folder contains the html file to display the visualisation, the file to include, a complete version of the file to include (i.e. just change the html so it includes *_complete.js to skip to the end), and a cheat sheet listing you the steps from blank to complete. 
+
+However, the easiest way to understand the demos is to step through the branches, from master to 6. Check out the next numbered branch, see what has changed in the js file and see what has changed in the visualisation.
